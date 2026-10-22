@@ -1,0 +1,3927 @@
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ислам Ренессансы және түркі мұрасы — Отырар өркениеті</title>
+
+<style>
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+html,body{
+    width:100%;
+    height:100%;
+    overflow:hidden;
+}
+
+body{
+    font-family:Georgia, "Times New Roman", serif;
+    background:#0d1822;
+    color:#1d2933;
+}
+
+.deck{
+    width:100vw;
+    height:100vh;
+    position:relative;
+}
+
+.slide{
+    display:none;
+    position:absolute;
+    inset:0;
+    padding:6vh 7vw;
+    overflow:auto;
+    background:
+        radial-gradient(circle at 90% 10%,rgba(201,155,69,.13),transparent 25%),
+        linear-gradient(135deg,#fffaf0,#eee3cf);
+}
+
+.slide.active{
+    display:block;
+    animation:slideIn .5s ease;
+}
+
+@keyframes slideIn{
+    from{
+        opacity:0;
+        transform:translateX(25px);
+    }
+    to{
+        opacity:1;
+        transform:translateX(0);
+    }
+}
+
+.dark{
+    background:
+        radial-gradient(circle at 80% 10%,#344c5d,transparent 30%),
+        linear-gradient(135deg,#0b1721,#193447);
+    color:#f8f0e1;
+}
+
+.photo{
+    background-size:cover;
+    background-position:center;
+    color:white;
+}
+
+.photo::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:
+        linear-gradient(
+            90deg,
+            rgba(5,12,18,.94),
+            rgba(5,12,18,.66),
+            rgba(5,12,18,.25)
+        );
+}
+
+.slide>*{
+    position:relative;
+    z-index:2;
+}
+
+.kicker{
+    font:700 11px Arial,sans-serif;
+    letter-spacing:.2em;
+    color:#c99b45;
+    text-transform:uppercase;
+    margin-bottom:18px;
+}
+
+h1{
+    font-size:clamp(42px,6vw,82px);
+    line-height:1;
+    margin-bottom:24px;
+}
+
+h2{
+    font-size:clamp(32px,4vw,58px);
+    line-height:1.05;
+    margin-bottom:28px;
+}
+
+h3{
+    font-size:21px;
+    margin-bottom:10px;
+}
+
+p,li{
+    font-size:clamp(16px,1.3vw,21px);
+    line-height:1.5;
+}
+
+.subtitle{
+    font-size:clamp(19px,2vw,28px);
+    color:#eadbbb;
+    max-width:850px;
+}
+
+.cover{
+    min-height:100%;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+}
+
+.badge{
+    display:inline-block;
+    width:max-content;
+    border:1px solid #c99b45;
+    padding:9px 14px;
+    font:700 10px Arial;
+    letter-spacing:.14em;
+    margin-bottom:25px;
+}
+
+.meta{
+    display:grid;
+    grid-template-columns:repeat(2,minmax(220px,1fr));
+    gap:10px;
+    max-width:760px;
+    margin-top:28px;
+}
+
+.meta div{
+    padding:13px 16px;
+    border-left:2px solid #c99b45;
+    background:rgba(255,255,255,.07);
+}
+
+.small{
+    font:12px/1.5 Arial;
+    color:#727d85;
+}
+
+.dark .small{
+    color:#bfc8ce;
+}
+
+.grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:16px;
+}
+
+.grid2{
+    display:grid;
+    grid-template-columns:1.1fr .9fr;
+    gap:25px;
+    align-items:center;
+}
+
+.card{
+    padding:21px;
+    background:rgba(255,250,240,.82);
+    border:1px solid rgba(100,75,35,.18);
+    box-shadow:0 12px 30px rgba(20,25,30,.07);
+    transition:.25s;
+}
+
+.card:hover{
+    transform:translateY(-5px);
+    border-color:#c99b45;
+}
+
+.dark .card{
+    background:rgba(255,255,255,.055);
+    border-color:rgba(240,212,154,.2);
+    box-shadow:none;
+}
+
+.icon{
+    font:32px Arial;
+    color:#c99b45;
+    margin-bottom:10px;
+}
+
+.tag{
+    display:inline-block;
+    border:1px solid #c99b45;
+    padding:5px 8px;
+    font:10px Arial;
+    color:#9a722d;
+    margin:4px;
+}
+
+.quote{
+    border-left:4px solid #c99b45;
+    background:rgba(201,155,69,.1);
+    padding:17px 20px;
+    font-size:20px;
+    line-height:1.45;
+    margin-top:20px;
+}
+
+.thesis{
+    margin-top:22px;
+    padding:14px 18px;
+    border-left:4px solid #c99b45;
+    background:rgba(201,155,69,.1);
+    font-size:14px;
+    line-height:1.5;
+}
+
+.thesis b{
+    font:700 10px Arial;
+    letter-spacing:.16em;
+    color:#c99b45;
+}
+
+/* PERSONS */
+
+.person{
+    padding:17px;
+    background:rgba(255,250,240,.8);
+    border:1px solid rgba(100,75,35,.18);
+}
+
+.dark .person{
+    background:rgba(255,255,255,.06);
+    border-color:rgba(240,212,154,.2);
+}
+
+.portrait{
+    height:110px;
+    margin-bottom:15px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:34px;
+    color:white;
+    background:
+        linear-gradient(135deg,#263d4d,#b88e43);
+}
+
+/* MAP */
+
+.map{
+    height:360px;
+    position:relative;
+    overflow:hidden;
+    border:1px solid rgba(201,155,69,.45);
+
+    background:
+        repeating-linear-gradient(
+            25deg,
+            transparent 0 30px,
+            rgba(240,212,154,.06) 31px 32px
+        ),
+        #142735;
+}
+
+.map::before{
+    content:"ОТЫРАР ОАЗИСІ";
+    position:absolute;
+    left:42%;
+    top:20%;
+    color:rgba(255,255,255,.06);
+    font:700 28px Arial;
+    letter-spacing:.1em;
+}
+
+.route{
+    position:absolute;
+    left:8%;
+    top:54%;
+    width:83%;
+    height:4px;
+    background:#c99b45;
+    transform:rotate(-11deg);
+    box-shadow:0 0 18px #c99b45;
+}
+
+.point{
+    position:absolute;
+    text-align:center;
+    color:white;
+    font:700 11px Arial;
+    cursor:pointer;
+    transition:.25s;
+}
+
+.point:hover{
+    transform:scale(1.2);
+}
+
+.point i{
+    display:block;
+    width:18px;
+    height:18px;
+    border-radius:50%;
+    background:#c99b45;
+    border:3px solid white;
+    margin:auto auto 7px;
+}
+
+/* TIMELINE */
+
+.timeline{
+    display:flex;
+    margin-top:35px;
+}
+
+.time{
+    flex:1;
+    border-top:2px solid #c99b45;
+    padding:16px 10px;
+    position:relative;
+}
+
+.time::before{
+    content:"";
+    position:absolute;
+    top:-8px;
+    left:5px;
+    width:14px;
+    height:14px;
+    background:#c99b45;
+    border-radius:50%;
+}
+
+.time strong{
+    font:700 14px Arial;
+    color:#c99b45;
+}
+
+.time p{
+    font-size:13px;
+    margin-top:10px;
+}
+
+/* ARTIFACTS */
+
+.artifacts{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:14px;
+}
+
+.artifact{
+    padding:17px;
+    min-height:240px;
+    text-align:center;
+    border:1px solid rgba(201,155,69,.25);
+    background:rgba(255,255,255,.055);
+    transition:.25s;
+}
+
+.artifact:hover{
+    transform:translateY(-5px);
+    border-color:#c99b45;
+}
+
+.shape{
+    height:120px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:68px;
+    color:#c99b45;
+}
+
+.artifact p{
+    font-size:12px;
+}
+
+/* TERMS */
+
+.termgrid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:14px;
+}
+
+.term{
+    padding:18px;
+    border-top:3px solid #c99b45;
+    background:rgba(201,155,69,.07);
+}
+
+.term b{
+    font-size:20px;
+}
+
+.term span{
+    display:block;
+    margin-top:8px;
+    font:13px/1.5 Arial;
+    color:#68737b;
+}
+
+.dark .term span{
+    color:#c6cdd2;
+}
+
+/* QR */
+
+.qrbox{
+    display:grid;
+    grid-template-columns:220px 1fr;
+    gap:32px;
+    align-items:center;
+}
+
+.qr{
+    width:200px;
+    height:200px;
+    background:white;
+    padding:8px;
+}
+
+/* NAVIGATION */
+
+.controls{
+    position:fixed;
+    right:20px;
+    bottom:18px;
+    z-index:30;
+    display:flex;
+    gap:7px;
+}
+
+button{
+    background:rgba(8,15,22,.94);
+    color:white;
+    border:1px solid #c99b45;
+    padding:9px 13px;
+    cursor:pointer;
+    font:12px Arial;
+}
+
+button:hover{
+    background:#c99b45;
+    color:#111;
+}
+
+.num{
+    position:fixed;
+    right:23px;
+    top:18px;
+    z-index:30;
+    font:12px Arial;
+    color:rgba(255,255,255,.75);
+}
+
+.progress{
+    position:fixed;
+    left:0;
+    bottom:0;
+    height:3px;
+    background:#c99b45;
+    width:0;
+    z-index:40;
+}
+
+/* RESPONSIVE */
+
+@media(max-width:850px){
+
+    .grid,
+    .grid2,
+    .termgrid,
+    .artifacts{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .timeline{
+        display:grid;
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .qrbox{
+        grid-template-columns:1fr;
+    }
+
+    .slide{
+        padding:5vh 6vw;
+    }
+}
+
+@media(max-width:550px){
+
+    .grid,
+    .grid2,
+    .termgrid,
+    .artifacts{
+        grid-template-columns:1fr;
+    }
+
+    .timeline{
+        grid-template-columns:1fr;
+    }
+
+    h1{
+        font-size:40px;
+    }
+
+    h2{
+        font-size:32px;
+    }
+
+    .meta{
+        grid-template-columns:1fr;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="deck">
+
+<!-- ===================== 1 ===================== -->
+
+<section class="slide photo active"
+style="background-image:url('https://images.unsplash.com/photo-1519817650390-64a93db511aa?auto=format&fit=crop&w=1800&q=85')">
+
+<div class="cover">
+
+<span class="badge">
+ӘЛ-ФАРАБИ АТЫНДАҒЫ ҚАЗАҚ ҰЛТТЫҚ УНИВЕРСИТЕТІ
+</span>
+
+<div class="kicker">
+МӘДЕНИЕТТАНУ • 104 ТОП
+</div>
+
+<h1>
+Ислам Ренессансы<br>
+және түркі мұрасы
+</h1>
+
+<p class="subtitle">
+Отырар өркениеті
+</p>
+
+<div class="meta">
+
+<div>
+<span class="small">Студент</span><br>
+<b>Түймебай Нұрасыл</b>
+</div>
+
+<div>
+<span class="small">Оқытушы</span><br>
+<b>Әлтаева Н.</b>
+</div>
+
+<div>
+<span class="small">Факультет</span><br>
+<b>Биология және биотехнология</b>
+</div>
+
+<div>
+<span class="small">Пән</span><br>
+<b>Мәдениеттану</b>
+</div>
+
+</div>
+</div>
+</section>
+
+
+<!-- ===================== 2 ===================== -->
+
+<section class="slide dark">
+
+<div class="kicker">01 / НЕГІЗГІ ҰҒЫМ</div>
+
+<h2>
+Ислам Ренессансы
+</h2>
+
+<div class="grid">
+
+<div class="card">
+<div class="icon">✦</div>
+<h3>Интеллектуалдық өрлеу</h3>
+<p>
+VIII–XII ғасырларда ислам әлемінің бірқатар
+орталықтарында философия, математика,
+медицина, астрономия және география дамыды.
+</p>
+</div>
+
+<div class="card">
+<div class="icon">⌘</div>
+<h3>Білім трансфері</h3>
+<p>
+Грек, парсы және үнді ғылыми дәстүрлері
+аударылып, түсіндіріліп, жаңа зерттеулермен
+толықтырылды.
+</p>
+</div>
+
+<div class="card">
+<div class="icon">◎</div>
+<h3>Қалалық мәдениет</h3>
+<p>
+Бағдад, Бұхара, Самарқанд, Мерв және Фараб
+сияқты қалалар білім мен сауданың маңызды
+орталықтарына айналды.
+</p>
+</div>
+
+</div>
+
+<div class="thesis">
+<b>НЕГІЗГІ ТЕЗИС</b><br>
+Ислам Ренессансы — ғылымның ғана емес,
+білімді өндіру, сақтау және тарату мәдениетінің өрлеуі.
+</div>
+
+</section>
+
+
+<!-- ===================== 3 ===================== -->
+
+<section class="slide">
+
+<div class="kicker">02 / ҒЫЛЫМИ ОРТА</div>
+
+<h2>
+Ғылыми-интеллектуалдық даму
+</h2>
+
+<div class="grid">
+
+<div class="card">
+<div class="icon">∑</div>
+<h3>Математика</h3>
+<p>
+Алгебралық ойлау, есептеу әдістері және
+математикалық білімнің жүйеленуі.
+</p>
+</div>
+
+<div class="card">
+<div class="icon">☼</div>
+<h3>Астрономия</h3>
+<p>
+Аспан денелерін бақылау, астрономиялық
+кестелер мен есептеу әдістерінің дамуы.
+</p>
+</div>
+
+<div class="card">
+<div class="icon">⚕</div>
+<h3>Медицина</h3>
+<p>
+Диагностика, фармакология және медициналық
+еңбектерді жүйелеу дәстүрі.
+</p>
+</div>
+
+</div>
+
+<div class="grid2" style="margin-top:25px">
+
+<div>
+<h3>Аударма қозғалысы</h3>
+<p>
+Ғылыми мәтіндерді араб тіліне аудару
+бұрынғы білімді сақтауға және оны
+сын тұрғысынан қайта қарауға мүмкіндік берді.
+</p>
+</div>
+
+<div class="card">
+<h3>Байт әл-Хикма</h3>
+<p>
+Бағдадтағы ғылыми-аударма дәстүрінің
+символына айналған «Даналық үйі»
+білімнің жинақталуын көрсетті.
+</p>
+</div>
+
+</div>
+
+<div class="thesis">
+<b>НЕГІЗГІ ТЕЗИС</b><br>
+Аударма → түсіндіру → сын → жаңа білім
+тізбегі интеллектуалдық дамудың маңызды механизмі болды.
+</div>
+
+</section>
+
+
+<!-- ===================== 4 ===================== -->
+
+<section class="slide photo"
+style="background-image:url('https://images.unsplash.com/photo-1590075865003-e48277faa558?auto=format&fit=crop&w=1800&q=85')">
+
+<div class="kicker">03 / ТҮРКІ МҰРАСЫ</div>
+
+<h2>
+Түркі әлемі және ислам өркениеті
+</h2>
+
+<p style="max-width:900px">
+
+Түркі халықтарының исламдық мәдени кеңістікке енуі
+діни өзгеріспен қатар жазба мәдениет, білім,
+әдебиет, қала өркениеті және саяси ойдың дамуына ықпал етті.
+
+</p>
+
+<div class="grid" style="margin-top:30px">
+
+<div class="card">
+<h3>Тіл</h3>
+<p>
+Түркі тілдерінің жазба дәстүрі күшейді.
+</p>
+</div>
+
+<div class="card">
+<h3>Әдебиет</h3>
+<p>
+Дидактикалық және діни-философиялық
+шығармалар дамыды.
+</p>
+</div>
+
+<div class="card">
+<h3>Қала</h3>
+<p>
+Сауда, қолөнер және білім орталықтары
+бір-бірімен байланыста дамыды.
+</p>
+</div>
+
+</div>
+
+<div class="thesis">
+<b>НЕГІЗГІ ТЕЗИС</b><br>
+Түркі мұрасы ислам өркениетімен өзара ықпалдастық
+арқылы жаңа мәдени-интеллектуалдық сипат алды.
+</div>
+
+</section>
+
+
+<!-- ===================== 5 ===================== -->
+
+<section class="slide dark">
+
+<div class="kicker">04 / ТҰЛҒАЛАР ГАЛЕРЕЯСЫ</div>
+
+<h2>
+Түркі-исламдық ойшылдар
+</h2>
+
+<div class="grid">
+
+<div class="person">
+
+<div class="portrait">
+الفارابي
+</div>
+
+<h3>
+Әбу Насыр әл-Фараби
+</h3>
+
+<p>
+Философия, логика, этика, саясат
+және музыка теориясы.
+</p>
+
+</div>
+
+
+<div class="person">
+
+<div class="portrait">
+قاشغري
+</div>
+
+<h3>
+Махмұд Қашқари
+</h3>
+
+<p>
+«Диуани лұғат ат-түрік» —
+түркі тілдері мен мәдениетінің
+маңызды жазба дерегі.
+</p>
+
+</div>
+
+
+<div class="person">
+
+<div class="portrait">
+بلخاسغوني
+</div>
+
+<h3>
+Жүсіп Баласағұни
+</h3>
+
+<p>
+«Құтадғу білік» — мемлекет,
+әділет, ақыл және мораль мәселелері.
+</p>
+
+</div>
+
+
+<div class="person">
+
+<div class="portrait">
+يساوي
+</div>
+
+<h3>
+Қожа Ахмет Ясауи
+</h3>
+
+<p>
+Түркі тіліндегі діни-этикалық поэзия
+және сопылық дәстүр.
+</p>
+
+</div>
+
+</div>
+
+<div class="thesis">
+<b>НЕГІЗГІ ТЕЗИС</b><br>
+Бұл тұлғалар түркі-исламдық өркениеттің
+философиялық, тілдік, әдеби және рухани қабаттарын көрсетеді.
+</div>
+
+</section>
+
+
+<!-- ===================== 6 ===================== -->
+
+<section class="slide">
+
+<div class="kicker">05 / ОТЫРАР</div>
+
+<h2>
+Отырар өркениеті
+</h2>
+
+<div class="grid2">
+
+<div>
+
+<p>
+<b>Отырар</b> — Сырдария бойындағы ортағасырлық
+ірі қалалық орталық. Тарихи деректерде
+Фараб және Тарбан атауларымен де кездеседі.
+</p>
+
+<p style="margin-top:18px">
+Отырар оазисі қала мәдениетін,
+суармалы егіншілікті, қолөнерді және
+керуен саудасын бір жүйеде байланыстырды.
+</p>
+
+<div style="margin-top:20px">
+<span class="tag">УРБАНИЗАЦИЯ</span>
+<span class="tag">ИРРИГАЦИЯ</span>
+<span class="tag">САУДА</span>
+<span class="tag">ҚОЛӨНЕР</span>
+</div>
+
+</div>
+
+<div
+style="
+height:330px;
+background:url('https://images.unsplash.com/photo-1548013146-72479768bada?auto=format&fit=crop&w=1000&q=85') center/cover;
+border:1px solid #c99b45;
+">
+</div>
+
+</div>
+
+<div class="thesis">
+<b>НЕГІЗГІ ТЕЗИС</b><br>
+Отырар — тек археологиялық ескерткіш емес,
+ортағасырлық қалалық өркениеттің күрделі
+экономикалық және мәдени жүйесі.
+</div>
+
+</section>
+
+
+<!-- ===================== 7 ===================== -->
+
+<section class="slide dark">
+
+<div class="kicker">06 / ИНТЕРАКТИВТІ КАРТА</div>
+
+<h2>
+Отырардың Ұлы Жібек жолындағы орны
+</h2>
+
+<div class="map">
+
+<div class="route"></div>
+
+<div class="point" style="left:8%;top:55%">
+<i></i>Қашғар
+</div>
+
+<div class="point" style="left:27%;top:49%">
+<i></i>Тараз
+</div>
+
+<div class="point" style="left:49%;top:43%">
+<i></i>Отырар
+</div>
+
+<div class="point" style="left:69%;top:37%">
+<i></i>Самарқанд
+</div>
+
+<div class="point" style="left:88%;top:28%">
+<i></i>Хорезм
+</div>
+
+</div>
+
+<p style="margin-top:20px">
+Керуен жолдары арқылы тауарлармен бірге
+идеялар, діни түсініктер, технологиялар және
+мәдени тәжірибелер таралды.
+</p>
+
+<div class="thesis">
+<b>НЕГІЗГІ ТЕЗИС</b><br>
+Отырардың стратегиялық орны оны Шығыс пен
+Батысты байланыстыратын мәдени трансфер кеңістігіне айналдырды.
+</div>
+
+</section>
+
+
+<!-- ===================== 8 ===================== -->
+
+<section class="slide">
+
+<div class="kicker">07 / ҚАЛАЛЫҚ ӨМІР</div>
+
+<h2>
+Отырардың әлеуметтік-экономикалық жүйесі
+</h2>
+
+<div class="grid">
+
+<div class="card">
+<div class="icon">♜</div>
+<h3>Қала құрылысы</h3>
+<p>
+Цитадель, шахристан және рабад тәрізді
+құрылымдар қалалық кеңістікті ұйымдастырды.
+</p>
+</div>
+
+<div class="card">
+<div class="icon">≈</div>
+<h3>Суару жүйесі</h3>
+<p>
+Каналдар мен су реттеу құрылыстары
+оазистік егіншіліктің негізін құрады.
+</p>
+</div>
+
+<div class="card">
+<div class="icon">⚒</div>
+<h3>Қолөнер</h3>
+<p>
+Керамика, металл өңдеу және басқа
+өндіріс түрлері дамыды.
+</p>
+</div>
+
+<div class="card">
+<div class="icon">↔</div>
+<h3>Сауда</h3>
+<p>
+Аймақаралық айырбас қаланың
+экономикалық рөлін күшейтті.
+</p>
+</div>
+
+<div class="card">
+<div class="icon">⌂</div>
+<h3>Қоғамдық кеңістік</h3>
+<p>
+Базар, монша және діни құрылыстар
+қалалық өмірдің элементтері болды.
+</p>
+</div>
+
+<div class="card">
+<div class="icon">✧</div>
+<h3>Мәдени байланыс</h3>
+<p>
+Көшпелі және отырықшы мәдениеттердің
+өзара ықпалы байқалды.
+</p>
+</div>
+
+</div>
+
+<div class="thesis">
+<b>НЕГІЗГІ ТЕЗИС</b><br>
+Отырардың дамуы табиғи ресурстарды игеру,
+қолөнер, сауда және қалалық инфрақұрылымның
+өзара байланысына сүйенді.
+</div>
+
+</section>
+
+
+<!-- ===================== 9 ===================== -->
+
+<section class="slide dark">
+
+<div class="kicker">08 / ӘЛ-ФАРАБИ</div>
+
+<h2>
+Фараб және әл-Фараби
+</h2>
+
+<div class="grid2">
+
+<div>
+
+<h3>
+Әбу Насыр әл-Фараби
+</h3>
+
+<p>
+Шығыс философиясының аса ірі өкілдерінің бірі.
+Оның мұрасы логика, философия, этика,
+саясат, музыка және ғылымдарды жіктеу
+мәселелерін қамтиды.
+</p>
+
+<div class="quote">
+Фараби мұрасын Отырар-Фараб өңірінің
+кең тарихи-мәдени контекстімен байланыстыра
+қарастыру маңызды.
+</div>
+
+</div>
+
+<div class="card">
+
+<h3>
+Негізгі ұғымдар
+</h3>
+
+<span class="tag">ЛОГИКА</span>
+<span class="tag">ФИЛОСОФИЯ</span>
+<span class="tag">ЭТИКА</span>
+<span class="tag">САЯСАТ</span>
+<span class="tag">МУЗЫКА</span>
+<span class="tag">ҒЫЛЫМДАР ЖІКТЕЛУІ</span>
+
+</div>
+
+</div>
+
+<div class="thesis">
+<b>НЕГІЗГІ ТЕЗИС</b><br>
+Әл-Фараби мұрасы исламдық ғылыми орта мен
+түркілік тарихи-географиялық кеңістіктің байланысын
+көрсететін маңызды интеллектуалдық феномен.
+</div>
+
+</section>
+
+
+<!-- ===================== 10 ===================== -->
+
+<section class="slide">
+
+<div class="kicker">09 / TIMELINE</div>
+
+<h2>
+VIII–XIII ғасырлар
+</h2>
+
+<div class="timeline">
+
+<div class="time">
+<strong>VIII ғ.</strong>
+<p>
+Исламның Орталық Азияға таралу үдерісі.
+</p>
+</div>
+
+<div class="time">
+<strong>IX ғ.</strong>
+<p>
+Бағдадтағы ғылыми-аударма қозғалысы.
+</p>
+</div>
+
+<div class="time">
+<strong>X ғ.</strong>
+<p>
+Түркі-исламдық ықпалдастықтың тереңдеуі.
+</p>
+</div>
+
+<div class="time">
+<strong>XI ғ.</strong>
+<p>
+Қашқари мен Баласағұни еңбектері.
+</p>
+</div>
+
+<div class="time">
+<strong>XII ғ.</strong>
+<p>
+Қалалық мәдениет пен білімнің дамуы.
+</p>
+</div>
+
+<div class="time">
+<strong>1219–1220</strong>
+<p>
+Отырар қоршауы және моңғол шапқыншылығы.
+</p>
+</div>
+
+</div>
+
+<div class="thesis">
+<b>НЕГІЗГІ ТЕЗИС</b><br>
+Отырар тарихын VIII–XIII ғасырлардағы
+аймақтық саяси және мәдени өзгерістермен
+бірге қарастыру қажет.
+</div>
+
+</section>
+
+
+<!-- ===================== 11 ===================== -->
+
+<section class="slide dark">
+
+<div class="kicker">10 / АҢЫЗ VS ТАРИХИ ДЕРЕК</div>
+
+<h2>
+«Отырар кітапханасы» мәселесі
+</h2>
+
+<div class="grid2">
+
+<div class="card">
+
+<span class="tag">
+АҢЫЗ / ТАНЫМАЛ СЮЖЕТ
+</span>
+
+<h3 style="margin-top:15px">
+Орасан зор кітапхана
+</h3>
+
+<p>
+Отырарда өте ірі кітапхана болғаны
+және оның моңғол шапқыншылығы кезінде
+жойылғаны туралы сюжет кең таралған
+тарихи-мәдени аңыздардың бірі.
+</p>
+
+</div>
+
+
+<div class="card">
+
+<span class="tag">
+АКАДЕМИЯЛЫҚ КӨЗҚАРАС
+</span>
+
+<h3 style="margin-top:15px">
+Дәлел деңгейін ажырату
+</h3>
+
+<p>
+Отырардың білім мен мәдениет орталығы
+болғанын көрсететін тарихи контекст маңызды.
+Бірақ кітапхананың нақты көлемі мен қоры
+туралы тікелей археологиялық дәлелдер шектеулі.
+</p>
+
+</div>
+
+</div>
+
+<div class="thesis">
+<b>НЕГІЗГІ ТЕЗИС</b><br>
+Аңыз бен дәлелденген тарихи деректі ажырату —
+ғылыми презентацияның негізгі қағидаларының бірі.
+</div>
+
+</section>
+
+
+<!-- ===================== 12 ===================== -->
+
+<section class="slide">
+
+<div class="kicker">11 / АРХЕОЛОГИЯ</div>
+
+<h2>
+Отырардың археологиялық мұрасы
+</h2>
+
+<div class="artifacts">
+
+<div class="artifact">
+<div class="shape">🏺</div>
+<h3>Керамика</h3>
+<p>
+Тұрмыс пен қолөнер технологиясын
+зерттейтін материалдық дерек.
+</p>
+</div>
+
+<div class="artifact">
+<div class="shape">◉</div>
+<h3>Монеталар</h3>
+<p>
+Ақша айналымы мен аймақаралық
+экономикалық байланыстарды көрсетеді.
+</p>
+</div>
+
+<div class="artifact">
+<div class="shape">⚒</div>
+<h3>Қолөнер</h3>
+<p>
+Металл және басқа өндіріс түрлерінің
+дамуын сипаттайды.
+</p>
+</div>
+
+<div class="artifact">
+<div class="shape">▱</div>
+<h3>Қала құрылысы</h3>
+<p>
+Қорғаныс, тұрғын және қоғамдық
+кеңістіктер туралы дерек береді.
+</p>
+</div>
+
+</div>
+
+<div class="thesis">
+<b>НЕГІЗГІ ТЕЗИС</b><br>
+Археологиялық материалдар Отырар қоғамының
+күнделікті өмірін жазба деректермен қатар зерттеуге мүмкіндік береді.
+</div>
+
+</section>
+
+
+<!-- ===================== 13 ===================== -->
+
+<section class="slide dark">
+
+<div class="kicker">12 / ТЕРМИНОЛОГИЯ</div>
+
+<h2>
+Негізгі академиялық терминдер
+</h2>
+
+<div class="termgrid">
+
+<div class="term">
+<b>Ренессанс</b>
+<span>
+Ғылыми, философиялық және мәдени жаңғыру,
+интеллектуалдық өрлеу.
+</span>
+</div>
+
+<div class="term">
+<b>Өркениет</b>
+<span>
+Қалалық, саяси, экономикалық және мәдени
+дамудың күрделі тарихи жүйесі.
+</span>
+</div>
+
+<div class="term">
+<b>Интеллектуалдық дәстүр</b>
+<span>
+Білімді өндіру, сақтау, түсіндіру және
+кейінгі ұрпаққа жеткізу қалыптары.
+</span>
+</div>
+
+<div class="term">
+<b>Урбанизация</b>
+<span>
+Қалалардың өсуі мен қалалық
+инфрақұрылымның қалыптасу үдерісі.
+</span>
+</div>
+
+<div class="term">
+<b>Мәдени трансфер</b>
+<span>
+Идея, білім, технология және тәжірибенің
+мәдени орта арасында таралуы.
+</span>
+</div>
+
+<div class="term">
+<b>Синкретизм</b>
+<span>
+Әртүрлі мәдени немесе діни элементтердің
+өзара ықпалдасып, жаңа форма құруы.
+</span>
+</div>
+
+</div>
+
+<div class="thesis">
+<b>НЕГІЗГІ ТЕЗИС</b><br>
+Терминологиялық дәлдік тарихи процестерді
+ғылыми категориялар арқылы түсіндіруге мүмкіндік береді.
+</div>
+
+</section>
+
+
+<!-- ===================== 14 ===================== -->
+
+<section class="slide">
+
+<div class="kicker">13 / ДЕРЕККӨЗ</div>
+
+<h2>
+QR-код арқылы дереккөздер
+</h2>
+
+<div class="qrbox">
+
+<img
+class="qr"
+src="https://api.qrserver.com/v1/create-qr-code/?size=400x400&data=https%3A%2F%2Fwhc.unesco.org%2Fen%2Ftentativelists%2F6568%2F"
+alt="UNESCO QR Code"
+>
+
+<div>
+
+<h3>
+UNESCO World Heritage Centre
+</h3>
+
+<p>
+QR-код Отырардың Ұлы Жібек жолы және
+тарихи-археологиялық мұрасы туралы
+UNESCO материалына апарады.
+</p>
+
+<p style="margin-top:15px">
+<b>Қосымша әдебиеттер:</b>
+</p>
+
+<p class="small">
+Әл-Фараби еңбектері;<br>
+Махмұд Қашқари — «Диуани лұғат ат-түрік»;<br>
+Жүсіп Баласағұни — «Құтадғу білік»;<br>
+Қазақстан археологиясы бойынша академиялық зерттеулер.
+</p>
+
+</div>
+
+</div>
+
+<div class="thesis">
+<b>НЕГІЗГІ ТЕЗИС</b><br>
+Дереккөзді көрсету академиялық адалдықты және
+тарихи тұжырымдардың тексерілу мүмкіндігін қамтамасыз етеді.
+</div>
+
+</section>
+
+
+<!-- ===================== 15 ===================== -->
+
+<section class="slide photo"
+style="background-image:url('https://images.unsplash.com/photo-1539650116574-75c0c6d73f6e?auto=format&fit=crop&w=1800&q=85')">
+
+<div class="cover">
+
+<div class="kicker">
+14 / ҚОРЫТЫНДЫ
+</div>
+
+<h1>
+Ислам Ренессансы<br>
+→ Түркі мұрасы<br>
+→ Отырар өркениеті
+</h1>
+
+<p class="subtitle">
+Отырар — исламдық ғылыми-мәдени кеңістік
+пен түркі әлемінің тарихи байланысын
+көрсететін маңызды өркениеттік орталық.
+</p>
+
+<div class="quote" style="max-width:850px;color:white">
+Өткенді түсіну — мәдениеттің қалай
+қалыптасқанын түсіну.
+</div>
+
+<p class="small" style="margin-top:28px;color:#ddd">
+Түймебай Нұрасыл • Мәдениеттану • 104 топ<br>
+Әл-Фараби атындағы ҚазҰУ
+</p>
+
+</div>
+
+</section>
+
+</div>
+
+
+<!-- NAVIGATION -->
+
+<div class="num" id="num">
+1 / 15
+</div>
+
+<div class="controls">
+
+<button onclick="prevSlide()">←</button>
+<button onclick="nextSlide()">→</button>
+<button onclick="fullscreen()">⛶</button>
+
+</div>
+
+<div class="progress" id="progress"></div>
+
+
+<script>
+
+let current = 0;
+
+const slides = document.querySelectorAll(".slide");
+
+function showSlide(index){
+
+    current = (index + slides.length) % slides.length;
+
+    slides.forEach((slide,i)=>{
+        slide.classList.toggle("active",i === current);
+    });
+
+    document.getElementById("num").textContent =
+        (current + 1) + " / " + slides.length;
+
+    document.getElementById("progress").style.width =
+        ((current + 1) / slides.length * 100) + "%";
+}
+
+function nextSlide(){
+    showSlide(current + 1);
+}
+
+function prevSlide(){
+    showSlide(current - 1);
+}
+
+function fullscreen(){
+
+    if(!document.fullscreenElement){
+
+        document.documentElement.requestFullscreen();
+
+    }else{
+
+        document.exitFullscreen();
+
+    }
+
+}
+
+
+/* Keyboard */
+
+document.addEventListener("keydown",(event)=>{
+
+    if(
+        event.key === "ArrowRight" ||
+        event.key === "PageDown" ||
+        event.key === " "
+    ){
+
+        event.preventDefault();
+        nextSlide();
+
+    }
+
+    if(
+        event.key === "ArrowLeft" ||
+        event.key === "PageUp"
+    ){
+
+        event.preventDefault();
+        prevSlide();
+
+    }
+
+    if(event.key === "Home"){
+        showSlide(0);
+    }
+
+    if(event.key === "End"){
+        showSlide(slides.length - 1);
+    }
+
+    if(event.key.toLowerCase() === "f"){
+        fullscreen();
+    }
+
+});
+
+
+/* Phone swipe */
+
+let startX = 0;
+
+document.addEventListener("touchstart",(e)=>{
+
+    startX = e.changedTouches[0].screenX;
+
+},{passive:true});
+
+
+document.addEventListener("touchend",(e)=>{
+
+    const endX = e.changedTouches[0].screenX;
+
+    const difference = endX - startX;
+
+    if(Math.abs(difference) > 50){
+
+        if(difference < 0){
+            nextSlide();
+        }else{
+            prevSlide();
+        }
+
+    }
+
+},{passive:true});
+
+
+showSlide(0);
+
+</script>
+
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Ислам Ренессансы және түркі мұрасы — Отырар өркениеті</title>
+
+<style>
+
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+html,body{
+    width:100%;
+    height:100%;
+    overflow:hidden;
+}
+
+body{
+    font-family:Georgia,"Times New Roman",serif;
+    background:#0b1721;
+    color:#26323a;
+}
+
+.deck{
+    width:100vw;
+    height:100vh;
+    position:relative;
+}
+
+.slide{
+    display:none;
+    position:absolute;
+    inset:0;
+    padding:6vh 7vw;
+    overflow:auto;
+
+    background:
+    radial-gradient(circle at 90% 10%,
+    rgba(201,155,69,.15),
+    transparent 25%),
+
+    linear-gradient(135deg,#fffaf0,#eee3cf);
+}
+
+.slide.active{
+    display:block;
+    animation:slideIn .5s ease;
+}
+
+@keyframes slideIn{
+    from{
+        opacity:0;
+        transform:translateX(30px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateX(0);
+    }
+}
+
+.dark{
+    background:
+    radial-gradient(circle at 80% 10%,
+    #354e60,
+    transparent 30%),
+
+    linear-gradient(135deg,#09151f,#193548);
+
+    color:#f8f0e1;
+}
+
+.photo{
+    background-size:cover;
+    background-position:center;
+    color:white;
+}
+
+.photo:before{
+    content:"";
+    position:absolute;
+    inset:0;
+
+    background:
+    linear-gradient(
+        90deg,
+        rgba(4,10,15,.95),
+        rgba(4,10,15,.68),
+        rgba(4,10,15,.25)
+    );
+}
+
+.slide>*{
+    position:relative;
+    z-index:2;
+}
+
+.kicker{
+    font:700 11px Arial;
+    letter-spacing:.2em;
+    color:#c99b45;
+    text-transform:uppercase;
+    margin-bottom:18px;
+}
+
+h1{
+    font-size:clamp(42px,6vw,82px);
+    line-height:1;
+    margin-bottom:24px;
+}
+
+h2{
+    font-size:clamp(32px,4vw,58px);
+    line-height:1.05;
+    margin-bottom:28px;
+}
+
+h3{
+    font-size:21px;
+    margin-bottom:10px;
+}
+
+p{
+    font-size:clamp(16px,1.3vw,21px);
+    line-height:1.5;
+}
+
+.subtitle{
+    font-size:clamp(19px,2vw,28px);
+    color:#eadbbb;
+    max-width:900px;
+}
+
+.cover{
+    min-height:100%;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+}
+
+.badge{
+    display:inline-block;
+    width:max-content;
+    border:1px solid #c99b45;
+    padding:9px 14px;
+    font:700 10px Arial;
+    letter-spacing:.14em;
+    margin-bottom:25px;
+}
+
+.meta{
+    display:grid;
+    grid-template-columns:repeat(2,minmax(220px,1fr));
+    gap:10px;
+    max-width:760px;
+    margin-top:28px;
+}
+
+.meta div{
+    padding:13px 16px;
+    border-left:2px solid #c99b45;
+    background:rgba(255,255,255,.07);
+}
+
+.small{
+    font:12px/1.5 Arial;
+    color:#727d85;
+}
+
+.dark .small{
+    color:#c4cdd3;
+}
+
+.grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:16px;
+}
+
+.grid2{
+    display:grid;
+    grid-template-columns:1.1fr .9fr;
+    gap:25px;
+    align-items:center;
+}
+
+.card{
+    padding:21px;
+
+    background:rgba(255,250,240,.84);
+
+    border:1px solid rgba(100,75,35,.18);
+
+    box-shadow:
+    0 12px 30px rgba(20,25,30,.08);
+
+    transition:.25s;
+}
+
+.card:hover{
+    transform:translateY(-5px);
+    border-color:#c99b45;
+}
+
+.dark .card{
+    background:rgba(255,255,255,.055);
+    border-color:rgba(240,212,154,.2);
+    box-shadow:none;
+}
+
+.icon{
+    font:32px Arial;
+    color:#c99b45;
+    margin-bottom:10px;
+}
+
+.tag{
+    display:inline-block;
+    border:1px solid #c99b45;
+    padding:5px 8px;
+    font:10px Arial;
+    color:#9a722d;
+    margin:4px;
+}
+
+.quote{
+    border-left:4px solid #c99b45;
+
+    background:rgba(201,155,69,.1);
+
+    padding:17px 20px;
+
+    font-size:20px;
+    line-height:1.45;
+
+    margin-top:20px;
+}
+
+.thesis{
+    margin-top:22px;
+
+    padding:14px 18px;
+
+    border-left:4px solid #c99b45;
+
+    background:rgba(201,155,69,.1);
+
+    font:14px/1.5 Arial;
+}
+
+.thesis b{
+    color:#c99b45;
+    letter-spacing:.16em;
+    font-size:10px;
+}
+
+
+/* PERSONS */
+
+.person{
+    padding:17px;
+
+    background:rgba(255,250,240,.8);
+
+    border:1px solid rgba(100,75,35,.18);
+
+    cursor:pointer;
+
+    transition:.3s;
+}
+
+.person:hover{
+    transform:translateY(-7px) scale(1.02);
+    border-color:#c99b45;
+}
+
+.dark .person{
+    background:rgba(255,255,255,.06);
+    border-color:rgba(240,212,154,.2);
+}
+
+.portrait{
+    height:110px;
+
+    margin-bottom:15px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    font-size:34px;
+
+    color:white;
+
+    background:
+    linear-gradient(135deg,#263d4d,#b88e43);
+}
+
+
+/* MAP */
+
+.map{
+    height:360px;
+
+    position:relative;
+
+    overflow:hidden;
+
+    border:1px solid rgba(201,155,69,.45);
+
+    background:
+
+    repeating-linear-gradient(
+        25deg,
+        transparent 0 30px,
+        rgba(240,212,154,.06) 31px 32px
+    ),
+
+    #142735;
+}
+
+.route{
+    position:absolute;
+
+    left:8%;
+    top:54%;
+
+    width:83%;
+    height:4px;
+
+    background:#c99b45;
+
+    transform:rotate(-11deg);
+
+    box-shadow:0 0 18px #c99b45;
+
+    animation:routeMove 3s infinite alternate;
+}
+
+@keyframes routeMove{
+
+    from{
+        opacity:.45;
+        box-shadow:0 0 5px #c99b45;
+    }
+
+    to{
+        opacity:1;
+        box-shadow:0 0 25px #c99b45;
+    }
+
+}
+
+.point{
+    position:absolute;
+
+    text-align:center;
+
+    color:white;
+
+    font:700 11px Arial;
+
+    cursor:pointer;
+
+    transition:.25s;
+}
+
+.point:hover{
+    transform:scale(1.25);
+}
+
+.point i{
+    display:block;
+
+    width:18px;
+    height:18px;
+
+    border-radius:50%;
+
+    background:#c99b45;
+
+    border:3px solid white;
+
+    margin:auto auto 7px;
+}
+
+
+/* TIMELINE */
+
+.timeline{
+    display:flex;
+
+    margin-top:35px;
+}
+
+.time{
+    flex:1;
+
+    border-top:2px solid #c99b45;
+
+    padding:16px 10px;
+
+    position:relative;
+}
+
+.time:before{
+    content:"";
+
+    position:absolute;
+
+    top:-8px;
+    left:5px;
+
+    width:14px;
+    height:14px;
+
+    background:#c99b45;
+
+    border-radius:50%;
+}
+
+.time strong{
+    font:700 14px Arial;
+
+    color:#c99b45;
+}
+
+.time p{
+    font-size:13px;
+
+    margin-top:10px;
+}
+
+
+/* ARTIFACTS */
+
+.artifacts{
+    display:grid;
+
+    grid-template-columns:repeat(4,1fr);
+
+    gap:14px;
+}
+
+.artifact{
+    padding:17px;
+
+    min-height:240px;
+
+    text-align:center;
+
+    border:1px solid rgba(201,155,69,.25);
+
+    background:rgba(255,255,255,.055);
+
+    cursor:pointer;
+
+    transition:.3s;
+}
+
+.artifact:hover{
+    transform:translateY(-7px);
+
+    border-color:#c99b45;
+
+    box-shadow:
+    0 15px 35px rgba(0,0,0,.12);
+}
+
+.shape{
+    height:120px;
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    font-size:68px;
+
+    color:#c99b45;
+}
+
+.artifact p{
+    font-size:12px;
+}
+
+
+/* TERMS */
+
+.termgrid{
+    display:grid;
+
+    grid-template-columns:repeat(3,1fr);
+
+    gap:14px;
+}
+
+.term{
+    padding:18px;
+
+    border-top:3px solid #c99b45;
+
+    background:rgba(201,155,69,.07);
+
+    transition:.25s;
+}
+
+.term:hover{
+    transform:translateY(-5px);
+}
+
+.term b{
+    font-size:20px;
+}
+
+.term span{
+    display:block;
+
+    margin-top:8px;
+
+    font:13px/1.5 Arial;
+
+    color:#68737b;
+}
+
+.dark .term span{
+    color:#c6cdd2;
+}
+
+
+/* QR */
+
+.qrbox{
+    display:grid;
+
+    grid-template-columns:220px 1fr;
+
+    gap:32px;
+
+    align-items:center;
+}
+
+.qr{
+    width:200px;
+    height:200px;
+
+    background:white;
+
+    padding:8px;
+}
+
+
+/* INTERACTIVE DIAGRAM */
+
+.flow{
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:12px;
+
+    margin:35px 0;
+}
+
+.flowBox{
+    padding:20px;
+
+    min-width:150px;
+
+    text-align:center;
+
+    border:1px solid #c99b45;
+
+    background:rgba(201,155,69,.08);
+
+    transition:.3s;
+}
+
+.flowBox:hover{
+    transform:scale(1.08);
+
+    background:rgba(201,155,69,.18);
+}
+
+.arrow{
+    color:#c99b45;
+
+    font-size:28px;
+}
+
+
+/* MODAL */
+
+.modal{
+    display:none;
+
+    position:fixed;
+
+    inset:0;
+
+    z-index:100;
+
+    background:rgba(0,0,0,.75);
+
+    align-items:center;
+
+    justify-content:center;
+
+    padding:30px;
+}
+
+.modal.show{
+    display:flex;
+}
+
+.modalBox{
+    max-width:650px;
+
+    width:100%;
+
+    padding:35px;
+
+    background:#fffaf0;
+
+    border-top:5px solid #c99b45;
+
+    color:#25313a;
+
+    animation:modalIn .3s ease;
+}
+
+@keyframes modalIn{
+
+    from{
+        transform:scale(.8);
+        opacity:0;
+    }
+
+    to{
+        transform:scale(1);
+        opacity:1;
+    }
+
+}
+
+.modalClose{
+    float:right;
+
+    font:20px Arial;
+
+    cursor:pointer;
+
+    color:#9a722d;
+}
+
+
+/* NAVIGATION */
+
+.controls{
+    position:fixed;
+
+    right:20px;
+    bottom:18px;
+
+    z-index:50;
+
+    display:flex;
+
+    gap:7px;
+}
+
+button{
+    background:rgba(8,15,22,.94);
+
+    color:white;
+
+    border:1px solid #c99b45;
+
+    padding:9px 13px;
+
+    cursor:pointer;
+
+    font:12px Arial;
+}
+
+button:hover{
+    background:#c99b45;
+
+    color:#111;
+}
+
+.num{
+    position:fixed;
+
+    right:23px;
+    top:18px;
+
+    z-index:50;
+
+    font:12px Arial;
+
+    color:rgba(255,255,255,.75);
+}
+
+.progress{
+    position:fixed;
+
+    left:0;
+    bottom:0;
+
+    height:3px;
+
+    background:#c99b45;
+
+    width:0;
+
+    z-index:60;
+}
+
+
+/* MOBILE */
+
+@media(max-width:850px){
+
+    .grid,
+    .grid2,
+    .termgrid,
+    .artifacts{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .timeline{
+        display:grid;
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .qrbox{
+        grid-template-columns:1fr;
+    }
+
+    .slide{
+        padding:5vh 6vw;
+    }
+
+}
+
+@media(max-width:550px){
+
+    .grid,
+    .grid2,
+    .termgrid,
+    .artifacts{
+        grid-template-columns:1fr;
+    }
+
+    .timeline{
+        grid-template-columns:1fr;
+    }
+
+    h1{
+        font-size:40px;
+    }
+
+    h2{
+        font-size:32px;
+    }
+
+    .meta{
+        grid-template-columns:1fr;
+    }
+
+    .flow{
+        flex-direction:column;
+    }
+
+    .arrow{
+        transform:rotate(90deg);
+    }
+
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<div class="deck">
+
+
+<!-- ================================================= -->
+<!-- 1 -->
+<!-- ================================================= -->
+
+<section class="slide photo active"
+style="background-image:url('https://images.unsplash.com/photo-1519817650390-64a93db511aa?auto=format&fit=crop&w=1800&q=85')">
+
+<div class="cover">
+
+<span class="badge">
+ӘЛ-ФАРАБИ АТЫНДАҒЫ ҚАЗАҚ ҰЛТТЫҚ УНИВЕРСИТЕТІ
+</span>
+
+<div class="kicker">
+МӘДЕНИЕТТАНУ • 104 ТОП
+</div>
+
+<h1>
+Ислам Ренессансы<br>
+және түркі мұрасы
+</h1>
+
+<p class="subtitle">
+Отырар өркениеті
+</p>
+
+<div class="meta">
+
+<div>
+<span class="small">Студент</span><br>
+<b>Түймебай Нұрасыл</b>
+</div>
+
+<div>
+<span class="small">Оқытушы</span><br>
+<b>Әлтаева Н.</b>
+</div>
+
+<div>
+<span class="small">Факультет</span><br>
+<b>Биология және биотехнология</b>
+</div>
+
+<div>
+<span class="small">Пән</span><br>
+<b>Мәдениеттану</b>
+</div>
+
+</div>
+
+</div>
+</section>
+
+
+<!-- ================================================= -->
+<!-- 2 -->
+<!-- ================================================= -->
+
+<section class="slide dark">
+
+<div class="kicker">01 / НЕГІЗГІ ҰҒЫМ</div>
+
+<h2>
+Ислам Ренессансы
+</h2>
+
+<div class="grid">
+
+<div class="card">
+<div class="icon">✦</div>
+
+<h3>
+Интеллектуалдық өрлеу
+</h3>
+
+<p>
+VIII–XII ғасырларда ислам әлемінің
+бірқатар орталықтарында философия,
+математика, медицина, астрономия
+және география қарқынды дамыды.
+</p>
+
+</div>
+
+
+<div class="card">
+<div class="icon">⌘</div>
+
+<h3>
+Білім трансфері
+</h3>
+
+<p>
+Грек, парсы және үнді ғылыми
+дәстүрлері аударылып, түсіндіріліп,
+жаңа зерттеулермен толықтырылды.
+</p>
+
+</div>
+
+
+<div class="card">
+<div class="icon">◎</div>
+
+<h3>
+Қалалық мәдениет
+</h3>
+
+<p>
+Бағдад, Бұхара, Самарқанд, Мерв
+және Фараб сияқты қалалар
+білім мен сауданың орталықтарына айналды.
+</p>
+
+</div>
+
+</div>
+
+
+<div class="thesis">
+
+<b>НЕГІЗГІ ТЕЗИС</b><br>
+
+Ислам Ренессансы — ғылымның ғана емес,
+білімді өндіру, сақтау және тарату
+мәдениетінің өрлеуі.
+
+</div>
+
+</section>
+
+
+<!-- ================================================= -->
+<!-- 3 -->
+<!-- ================================================= -->
+
+<section class="slide">
+
+<div class="kicker">02 / ҒЫЛЫМ</div>
+
+<h2>
+Ғылыми-интеллектуалдық орта
+</h2>
+
+<div class="grid">
+
+<div class="card">
+
+<div class="icon">∑</div>
+
+<h3>
+Математика
+</h3>
+
+<p>
+Алгебралық ойлау, есептеу әдістері
+және математикалық білімнің жүйеленуі.
+</p>
+
+</div>
+
+
+<div class="card">
+
+<div class="icon">☼</div>
+
+<h3>
+Астрономия
+</h3>
+
+<p>
+Аспан денелерін бақылау,
+астрономиялық кестелер және
+есептеу әдістерінің дамуы.
+</p>
+
+</div>
+
+
+<div class="card">
+
+<div class="icon">⚕</div>
+
+<h3>
+Медицина
+</h3>
+
+<p>
+Диагностика, фармакология және
+медициналық еңбектерді жүйелеу дәстүрі.
+</p>
+
+</div>
+
+</div>
+
+
+<div class="grid2" style="margin-top:25px">
+
+<div>
+
+<h3>
+Аударма қозғалысы
+</h3>
+
+<p>
+Ғылыми мәтіндерді араб тіліне аудару
+бұрынғы білімді сақтауға және оны
+сын тұрғысынан қайта қарауға мүмкіндік берді.
+</p>
+
+</div>
+
+
+<div class="card">
+
+<h3>
+Байт әл-Хикма
+</h3>
+
+<p>
+Бағдадтағы ғылыми-аударма дәстүрінің
+символына айналған «Даналық үйі»
+білімнің жинақталуы мен таралуын көрсетті.
+</p>
+
+</div>
+
+</div>
+
+
+<div class="thesis">
+
+<b>НЕГІЗГІ ТЕЗИС</b><br>
+
+Аударма → түсіндіру → сын → жаңа білім
+тізбегі интеллектуалдық дамудың маңызды механизмі болды.
+
+</div>
+
+</section>
+
+
+<!-- ================================================= -->
+<!-- 4 -->
+<!-- ================================================= -->
+
+<section class="slide photo"
+style="background-image:url('https://images.unsplash.com/photo-1590075865003-e48277faa558?auto=format&fit=crop&w=1800&q=85')">
+
+<div class="kicker">
+03 / ТҮРКІ МҰРАСЫ
+</div>
+
+<h2>
+Түркі әлемі және ислам өркениеті
+</h2>
+
+<p style="max-width:900px">
+
+Түркі халықтарының исламдық мәдени кеңістікке
+енуі діни өзгеріспен қатар жазба мәдениет,
+білім, әдебиет, қала өркениеті және саяси
+ойдың дамуына ықпал етті.
+
+</p>
+
+
+<div class="grid" style="margin-top:30px">
+
+<div class="card">
+<h3>Тіл</h3>
+<p>
+Түркі тілдерінің жазба дәстүрі күшейді.
+</p>
+</div>
+
+<div class="card">
+<h3>Әдебиет</h3>
+<p>
+Дидактикалық және діни-философиялық
+шығармалар дамыды.
+</p>
+</div>
+
+<div class="card">
+<h3>Қала</h3>
+<p>
+Сауда, қолөнер және білім орталықтары
+өзара байланыста дамыды.
+</p>
+</div>
+
+</div>
+
+
+<div class="thesis">
+
+<b>НЕГІЗГІ ТЕЗИС</b><br>
+
+Түркі мұрасы ислам өркениетімен өзара
+ықпалдастық арқылы жаңа мәдени-
+интеллектуалдық сипат алды.
+
+</div>
+
+</section>
+
+
+<!-- ================================================= -->
+<!-- 5 -->
+<!-- ================================================= -->
+
+<section class="slide dark">
+
+<div class="kicker">
+04 / ТҰЛҒАЛАР ГАЛЕРЕЯСЫ
+</div>
+
+<h2>
+Түркі-исламдық ойшылдар
+</h2>
+
+<div class="grid">
+
+
+<div class="person"
+onclick="openModal(
+'Әбу Насыр әл-Фараби',
+'Философия, логика, этика, саясат және музыка теориясына үлес қосқан ірі ойшыл. Фараби мұрасы исламдық ғылыми ортаның интеллектуалдық деңгейін көрсетеді.'
+)">
+
+<div class="portrait">
+الفارابي
+</div>
+
+<h3>
+Әбу Насыр әл-Фараби
+</h3>
+
+<p>
+Философия • логика • этика • саясат
+</p>
+
+</div>
+
+
+<div class="person"
+onclick="openModal(
+'Махмұд Қашқари',
+'«Диуани лұғат ат-түрік» еңбегі XI ғасырдағы түркі тілдері, сөздік қоры, этномәдени түсініктері және географиялық кеңістігі туралы маңызды жазба дерек болып табылады.'
+)">
+
+<div class="portrait">
+قاشغري
+</div>
+
+<h3>
+Махмұд Қашқари
+</h3>
+
+<p>
+Тіл білімі • түркі мәдениеті • лексикография
+</p>
+
+</div>
+
+
+<div class="person"
+onclick="openModal(
+'Жүсіп Баласағұни',
+'«Құтадғу білік» шығармасында мемлекет басқару, әділет, ақыл, білім және адамгершілік мәселелері қарастырылады.'
+)">
+
+<div class="portrait">
+بلخاسغوني
+</div>
+
+<h3>
+Жүсіп Баласағұни
+</h3>
+
+<p>
+Мемлекет • әділет • мораль • ақыл
+</p>
+
+</div>
+
+
+<div class="person"
+onclick="openModal(
+'Қожа Ахмет Ясауи',
+'Түркі тіліндегі діни-этикалық поэзияның және сопылық дүниетанымның ірі өкілі. Оның мұрасы түркілік рухани мәдениеттің дамуына әсер етті.'
+)">
+
+<div class="portrait">
+يساوي
+</div>
+
+<h3>
+Қожа Ахмет Ясауи
+</h3>
+
+<p>
+Сопылық • руханият • түркі әдебиеті
+</p>
+
+</div>
+
+
+</div>
+
+
+<div class="thesis">
+
+<b>ИНТЕРАКТИВ</b><br>
+
+Тұлғаның карточкасын басып,
+оның тарихи-мәдени маңызы туралы қосымша
+ақпаратты ашуға болады.
+
+</div>
+
+</section>
+
+
+<!-- ================================================= -->
+<!-- 6 -->
+<!-- ================================================= -->
+
+<section class="slide">
+
+<div class="kicker">
+05 / ОТЫРАР
+</div>
+
+<h2>
+Отырар өркениеті
+</h2>
+
+<div class="grid2">
+
+<div>
+
+<p>
+<b>Отырар</b> — Сырдария бойындағы
+ортағасырлық ірі қалалық орталық.
+Тарихи деректерде Фараб және Тарбан
+атауларымен де кездеседі.
+</p>
+
+<p style="margin-top:18px">
+
+Отырар оазисі қала мәдениетін,
+суармалы егіншілікті, қолөнерді және
+керуен саудасын бір жүйеде байланыстырды.
+
+</p>
+
+<div style="margin-top:20px">
+
+<span class="tag">УРБАНИЗАЦИЯ</span>
+<span class="tag">ИРРИГАЦИЯ</span>
+<span class="tag">САУДА</span>
+<span class="tag">ҚОЛӨНЕР</span>
+
+</div>
+
+</div>
+
+
+<div
+style="
+height:330px;
+background:url('https://images.unsplash.com/photo-1548013146-72479768bada?auto=format&fit=crop&w=1000&q=85') center/cover;
+border:1px solid #c99b45;
+">
+</div>
+
+</div>
+
+
+<div class="thesis">
+
+<b>НЕГІЗГІ ТЕЗИС</b><br>
+
+Отырар — тек археологиялық ескерткіш емес,
+ортағасырлық қалалық өркениеттің күрделі
+экономикалық және мәдени жүйесі.
+
+</div>
+
+</section>
+
+
+<!-- ================================================= -->
+<!-- 7 -->
+<!-- ================================================= -->
+
+<section class="slide dark">
+
+<div class="kicker">
+06 / ИНТЕРАКТИВТІ КАРТА
+</div>
+
+<h2>
+Отырардың Ұлы Жібек жолындағы орны
+</h2>
+
+<div class="map">
+
+<div class="route"></div>
+
+<div class="point"
+style="left:8%;top:55%"
+onclick="openModal('Қашғар','Шығыс бағытындағы маңызды сауда және мәдени байланыс нүктелерінің бірі.')">
+
+<i></i>
+Қашғар
+
+</div>
+
+
+<div class="point"
+style="left:27%;top:49%"
+onclick="openModal('Тараз','Жетісу аймағындағы маңызды ортағасырлық қалалық орталық.')">
+
+<i></i>
+Тараз
+
+</div>
+
+
+<div class="point"
+style="left:49%;top:43%"
+onclick="openModal('Отырар','Сырдария бойындағы ірі қалалық және сауда орталығы.')">
+
+<i></i>
+ОТЫРАР
+
+</div>
+
+
+<div class="point"
+style="left:69%;top:37%"
+onclick="openModal('Самарқанд','Орталық Азиядағы ірі саяси, экономикалық және мәдени орталық.')">
+
+<i></i>
+Самарқанд
+
+</div>
+
+
+<div class="point"
+style="left:88%;top:28%"
+onclick="openModal('Хорезм','Орталық Азияның тарихи мәдени аймақтарының бірі.')">
+
+<i></i>
+Хорезм
+
+</div>
+
+</div>
+
+
+<p style="margin-top:20px">
+
+Керуен жолдары арқылы тауарлармен бірге
+идеялар, діни түсініктер, технологиялар
+және мәдени тәжірибелер таралды.
+
+</p>
+
+
+<div class="thesis">
+
+<b>ИНТЕРАКТИВ</b><br>
+
+Картадағы қаланы басып,
+оның Отырармен байланысын көруге болады.
+
+</div>
+
+</section>
+
+
+<!-- ================================================= -->
+<!-- 8 -->
+<!-- ================================================= -->
+
+<section class="slide">
+
+<div class="kicker">
+07 / ҚАЛАЛЫҚ ӨМІР
+</div>
+
+<h2>
+Отырардың әлеуметтік-экономикалық жүйесі
+</h2>
+
+<div class="grid">
+
+<div class="card">
+<div class="icon">♜</div>
+<h3>Қала құрылысы</h3>
+<p>
+Цитадель, шахристан және рабад
+қалалық кеңістіктің негізгі элементтері.
+</p>
+</div>
+
+
+<div class="card">
+<div class="icon">≈</div>
+<h3>Суару жүйесі</h3>
+<p>
+Каналдар мен су реттеу құрылыстары
+оазистік егіншіліктің негізін құрады.
+</p>
+</div>
+
+
+<div class="card">
+<div class="icon">⚒</div>
+<h3>Қолөнер</h3>
+<p>
+Керамика, металл өңдеу және басқа
+өндіріс түрлері дамыды.
+</p>
+</div>
+
+
+<div class="card">
+<div class="icon">↔</div>
+<h3>Сауда</h3>
+<p>
+Аймақаралық айырбас қаланың
+экономикалық рөлін күшейтті.
+</p>
+</div>
+
+
+<div class="card">
+<div class="icon">⌂</div>
+<h3>Қоғамдық кеңістік</h3>
+<p>
+Базар, монша және діни құрылыстар
+қалалық өмірдің элементтері болды.
+</p>
+</div>
+
+
+<div class="card">
+<div class="icon">✧</div>
+<h3>Мәдени байланыс</h3>
+<p>
+Көшпелі және отырықшы мәдениеттердің
+өзара ықпалы байқалды.
+</p>
+</div>
+
+</div>
+
+
+<div class="thesis">
+
+<b>НЕГІЗГІ ТЕЗИС</b><br>
+
+Отырардың дамуы табиғи ресурстарды игеру,
+қолөнер, сауда және қалалық инфрақұрылымның
+өзара байланысына сүйенді.
+
+</div>
+
+</section>
+
+
+<!-- ================================================= -->
+<!-- 9 -->
+<!-- ================================================= -->
+
+<section class="slide dark">
+
+<div class="kicker">
+08 / ӘЛ-ФАРАБИ
+</div>
+
+<h2>
+Фараб және әл-Фараби
+</h2>
+
+<div class="grid2">
+
+<div>
+
+<h3>
+Әбу Насыр әл-Фараби
+</h3>
+
+<p>
+
+Шығыс философиясының аса ірі өкілдерінің бірі.
+Оның мұрасы логика, философия, этика,
+саясат, музыка және ғылымдарды жіктеу
+мәселелерін қамтиды.
+
+</p>
+
+<div class="quote">
+
+Фараби мұрасын Отырар-Фараб өңірінің
+кең тарихи-мәдени контекстімен байланыстыра
+қарастыру маңызды.
+
+</div>
+
+</div>
+
+
+<div class="card">
+
+<h3>
+Негізгі ұғымдар
+</h3>
+
+<span class="tag">ЛОГИКА</span>
+<span class="tag">ФИЛОСОФИЯ</span>
+<span class="tag">ЭТИКА</span>
+<span class="tag">САЯСАТ</span>
+<span class="tag">МУЗЫКА</span>
+<span class="tag">ҒЫЛЫМДАР ЖІКТЕЛУІ</span>
+
+</div>
+
+</div>
+
+
+<div class="thesis">
+
+<b>НЕГІЗГІ ТЕЗИС</b><br>
+
+Әл-Фараби мұрасы исламдық ғылыми орта
+мен түркілік тарихи-географиялық кеңістіктің
+байланысын көрсететін маңызды интеллектуалдық феномен.
+
+</div>
+
+</section>
+
+
+<!-- ================================================= -->
+<!-- 10 -->
+<!-- ================================================= -->
+
+<section class="slide">
+
+<div class="kicker">
+09 / TIMELINE
+</div>
+
+<h2>
+VIII–XIII ғасырлар
+</h2>
+
+<div class="timeline">
+
+<div class="time">
+<strong>VIII ғ.</strong>
+<p>
+Исламның Орталық Азияға таралу үдерісі.
+</p>
+</div>
+
+<div class="time">
+<strong>IX ғ.</strong>
+<p>
+Бағдадтағы ғылыми-аударма қозғалысы.
+</p>
+</div>
+
+<div class="time">
+<strong>X ғ.</strong>
+<p>
+Түркі-исламдық ықпалдастықтың тереңдеуі.
+</p>
+</div>
+
+<div class="time">
+<strong>XI ғ.</strong>
+<p>
+Қашқари мен Баласағұни еңбектері.
+</p>
+</div>
+
+<div class="time">
+<strong>XII ғ.</strong>
+<p>
+Қалалық мәдениет пен білімнің дамуы.
+</p>
+</div>
+
+<div class="time">
+<strong>1219–1220</strong>
+<p>
+Отырар қоршауы және моңғол шапқыншылығы.
+</p>
+</div>
+
+</div>
+
+
+<div class="thesis">
+
+<b>НЕГІЗГІ ТЕЗИС</b><br>
+
+Отырар тарихын VIII–XIII ғасырлардағы
+аймақтық саяси және мәдени өзгерістермен
+бірге қарастыру қажет.
+
+</div>
+
+</section>
+
+
+<!-- ================================================= -->
+<!-- 11 -->
+<!-- ================================================= -->
+
+<section class="slide dark">
+
+<div class="kicker">
+10 / АҢЫЗ VS ТАРИХИ ДЕРЕК
+</div>
+
+<h2>
+«Отырар кітапханасы» мәселесі
+</h2>
+
+<div class="grid2">
+
+<div class="card">
+
+<span class="tag">
+АҢЫЗ
+</span>
+
+<h3 style="margin-top:15px">
+Орасан зор кітапхана
+</h3>
+
+<p>
+
+Отырарда өте ірі кітапхана болғаны
+және оның моңғол шапқыншылығы кезінде
+жойылғаны туралы сюжет кең таралған
+тарихи-мәдени аңыздардың бірі.
+
+</p>
+
+</div>
+
+
+<div class="card">
+
+<span class="tag">
+ТАРИХИ-ҒЫЛЫМИ КӨЗҚАРАС
+</span>
+
+<h3 style="margin-top:15px">
+Дәлел деңгейін ажырату
+</h3>
+
+<p>
+
+Отырардың білім мен мәдениет орталығы
+болған тарихи контексті маңызды.
+Алайда кітапхананың нақты көлемі мен
+қоры туралы тікелей археологиялық
+дәлелдер шектеулі.
+
+</p>
+
+</div>
+
+</div>
+
+
+<div class="thesis">
+
+<b>АКАДЕМИЯЛЫҚ ҰСТАНЫМ</b><br>
+
+Аңыз бен дәлелденген тарихи деректі
+ажырату — ғылыми зерттеудің маңызды қағидасы.
+
+</div>
+
+</section>
+
+
+<!-- ================================================= -->
+<!-- 12 -->
+<!-- ================================================= -->
+
+<section class="slide">
+
+<div class="kicker">
+11 / АРХЕОЛОГИЯ
+</div>
+
+<h2>
+Археологиялық артефактілер
+</h2>
+
+<div class="artifacts">
+
+
+<div class="artifact"
+onclick="openModal(
+'Керамика',
+'Керамикалық бұйымдар ортағасырлық тұрғындардың тұрмысы, өндіріс техникасы және қолөнер мәдениеті туралы ақпарат береді.'
+)">
+
+<div class="shape">
+🏺
+</div>
+
+<h3>
+Керамика
+</h3>
+
+<p>
+Тұрмыс және қолөнер технологиясы.
+</p>
+
+</div>
+
+
+<div class="artifact"
+onclick="openModal(
+'Монеталар',
+'Монеталар ақша айналымын, экономикалық қатынастарды және қаланың аймақаралық байланыстарын зерттеуге мүмкіндік береді.'
+)">
+
+<div class="shape">
+◉
+</div>
+
+<h3>
+Монеталар
+</h3>
+
+<p>
+Ақша айналымы және сауда.
+</p>
+
+</div>
+
+
+<div class="artifact"
+onclick="openModal(
+'Қолөнер',
+'Металл өңдеу және басқа қолөнер түрлері Отырардағы өндірістік маманданудың болғанын көрсетеді.'
+)">
+
+<div class="shape">
+⚒
+</div>
+
+<h3>
+Қолөнер
+</h3>
+
+<p>
+Өндіріс және технология.
+</p>
+
+</div>
+
+
+<div class="artifact"
+onclick="openModal(
+'Қала құрылысы',
+'Археологиялық құрылымдар қаланың қорғаныс жүйесін, тұрғын аймақтарын және қоғамдық кеңістіктерін зерттеуге мүмкіндік береді.'
+)">
+
+<div class="shape">
+▱
+</div>
+
+<h3>
+Қала құрылысы
+</h3>
+
+<p>
+Қорғаныс және урбанистік жүйе.
+</p>
+
+</div>
+
+
+</div>
+
+
+<div class="thesis">
+
+<b>ИНТЕРАКТИВ</b><br>
+
+Артефактты басып,
+оның қандай тарихи ақпарат беретінін көруге болады.
+
+</div>
+
+</section>
+
+
+<!-- ================================================= -->
+<!-- 13 -->
+<!-- ================================================= -->
+
+<section class="slide dark">
+
+<div class="kicker">
+12 / ТЕРМИНОЛОГИЯ
+</div>
+
+<h2>
+Негізгі академиялық терминдер
+</h2>
+
+<div class="termgrid">
+
+
+<div class="term">
+
+<b>Ренессанс</b>
+
+<span>
+Ғылыми, философиялық және мәдени жаңғыру,
+интеллектуалдық өрлеу.
+</span>
+
+</div>
+
+
+<div class="term">
+
+<b>Өркениет</b>
+
+<span>
+Қалалық, саяси, экономикалық және
+мәдени дамудың күрделі тарихи жүйесі.
+</span>
+
+</div>
+
+
+<div class="term">
+
+<b>Интеллектуалдық дәстүр</b>
+
+<span>
+Білімді өндіру, сақтау, түсіндіру
+және жеткізу қалыптары.
+</span>
+
+</div>
+
+
+<div class="term">
+
+<b>Урбанизация</b>
+
+<span>
+Қалалардың өсуі мен қалалық
+инфрақұрылымның қалыптасу үдерісі.
+</span>
+
+</div>
+
+
+<div class="term">
+
+<b>Мәдени трансфер</b>
+
+<span>
+Идея, білім, технология және
+тәжірибенің мәдени орта арасында таралуы.
+</span>
+
+</div>
+
+
+<div class="term">
+
+<b>Синкретизм</b>
+
+<span>
+Әртүрлі мәдени немесе діни элементтердің
+өзара ықпалдасып, жаңа форма құруы.
+</span>
+
+</div>
+
+</div>
+
+
+<div class="thesis">
+
+<b>НЕГІЗГІ ТЕЗИС</b><br>
+
+Терминологиялық дәлдік тарихи процестерді
+ғылыми категориялар арқылы түсіндіруге мүмкіндік береді.
+
+</div>
+
+</section>
+
+
+<!-- ================================================= -->
+<!-- 14 -->
+<!-- ================================================= -->
+
+<section class="slide">
+
+<div class="kicker">
+13 / ДЕРЕККӨЗ
+</div>
+
+<h2>
+QR-код арқылы дереккөздер
+</h2>
+
+<div class="qrbox">
+
+<img
+class="qr"
+src="https://api.qrserver.com/v1/create-qr-code/?size=400x400&data=https%3A%2F%2Fwhc.unesco.org%2Fen%2Ftentativelists%2F6568%2F"
+alt="UNESCO QR"
+>
+
+<div>
+
+<h3>
+UNESCO World Heritage Centre
+</h3>
+
+<p>
+
+QR-код Отырардың Ұлы Жібек жолы және
+тарихи-археологиялық мұрасы туралы
+UNESCO материалына апарады.
+
+</p>
+
+<p style="margin-top:15px">
+<b>Негізгі әдебиеттер:</b>
+</p>
+
+<p class="small">
+
+Әл-Фараби еңбектері;<br>
+
+Махмұд Қашқари —
+«Диуани лұғат ат-түрік»;<br>
+
+Жүсіп Баласағұни —
+«Құтадғу білік»;<br>
+
+Қазақстан археологиясы бойынша
+академиялық зерттеулер.
+
+</p>
+
+</div>
+
+</div>
+
+
+<div class="thesis">
+
+<b>АКАДЕМИЯЛЫҚ АДАЛДЫҚ</b><br>
+
+Дереккөзді көрсету тарихи тұжырымдардың
+тексерілу мүмкіндігін қамтамасыз етеді.
+
+</div>
+
+</section>
+
+
+<!-- ================================================= -->
+<!-- 15 -->
+<!-- ================================================= -->
+
+<section class="slide photo"
+style="background-image:url('https://images.unsplash.com/photo-1539650116574-75c0c6d73f6e?auto=format&fit=crop&w=1800&q=85')">
+
+<div class="cover">
+
+<div class="kicker">
+14 / ҚОРЫТЫНДЫ
+</div>
+
+<h1>
+
+Ислам Ренессансы<br>
+→ Түркі мұрасы<br>
+→ Отырар өркениеті
+
+</h1>
+
+<p class="subtitle">
+
+Отырар — исламдық ғылыми-мәдени кеңістік
+пен түркі әлемінің тарихи байланысын
+көрсететін маңызды өркениеттік орталық.
+
+</p>
+
+
+<div class="flow">
+
+<div class="flowBox">
+ИСЛАМ<br>
+РЕНЕССАНСЫ
+</div>
+
+<div class="arrow">
+→
+</div>
+
+<div class="flowBox">
+ТҮРКІ<br>
+МҰРАСЫ
+</div>
+
+<div class="arrow">
+→
+</div>
+
+<div class="flowBox">
+ОТЫРАР<br>
+ӨРКЕНИЕТІ
+</div>
+
+</div>
+
+
+<div class="quote"
+style="max-width:850px;color:white">
+
+Өткенді түсіну —
+мәдениеттің қалай қалыптасқанын түсіну.
+
+</div>
+
+
+<p class="small"
+style="margin-top:28px;color:#ddd">
+
+Түймебай Нұрасыл • Мәдениеттану • 104 топ<br>
+
+Әл-Фараби атындағы Қазақ ұлттық университеті
+
+</p>
+
+</div>
+
+</section>
+
+
+</div>
+
+
+<!-- ================================================= -->
+<!-- MODAL -->
+<!-- ================================================= -->
+
+<div class="modal" id="modal">
+
+<div class="modalBox">
+
+<span class="modalClose"
+onclick="closeModal()">
+✕
+</span>
+
+<h2 id="modalTitle">
+</h2>
+
+<p id="modalText">
+</p>
+
+</div>
+
+</div>
+
+
+<!-- ================================================= -->
+<!-- NAVIGATION -->
+<!-- ================================================= -->
+
+<div class="num" id="num">
+1 / 15
+</div>
+
+
+<div class="controls">
+
+<button onclick="prevSlide()">
+←
+</button>
+
+<button onclick="nextSlide()">
+→
+</button>
+
+<button onclick="fullscreen()">
+⛶
+</button>
+
+</div>
+
+
+<div class="progress" id="progress">
+</div>
+
+
+<script>
+
+let current = 0;
+
+const slides =
+document.querySelectorAll(".slide");
+
+
+function showSlide(index){
+
+    current =
+    (index + slides.length) %
+    slides.length;
+
+    slides.forEach(
+        (slide,i)=>{
+            slide.classList.toggle(
+                "active",
+                i === current
+            );
+        }
+    );
+
+    document.getElementById("num")
+    .textContent =
+    (current + 1)
+    + " / "
+    + slides.length;
+
+    document.getElementById("progress")
+    .style.width =
+    ((current + 1) /
+    slides.length * 100)
+    + "%";
+
+}
+
+
+function nextSlide(){
+    showSlide(current + 1);
+}
+
+
+function prevSlide(){
+    showSlide(current - 1);
+}
+
+
+/* FULLSCREEN */
+
+function fullscreen(){
+
+    if(!document.fullscreenElement){
+
+        document.documentElement
+        .requestFullscreen();
+
+    }
+
+    else{
+
+        document.exitFullscreen();
+
+    }
+
+}
+
+
+/* MODAL */
+
+function openModal(title,text){
+
+    document.getElementById("modalTitle")
+    .textContent = title;
+
+    document.getElementById("modalText")
+    .textContent = text;
+
+    document.getElementById("modal")
+    .classList.add("show");
+
+}
+
+
+function closeModal(){
+
+    document.getElementById("modal")
+    .classList.remove("show");
+
+}
+
+
+document.getElementById("modal")
+.addEventListener("click",(e)=>{
+
+    if(e.target.id === "modal"){
+        closeModal();
+    }
+
+});
+
+
+/* KEYBOARD */
+
+document.addEventListener("keydown",(event)=>{
+
+    if(
+        event.key === "ArrowRight" ||
+        event.key === "PageDown" ||
+        event.key === " "
+    ){
+
+        event.preventDefault();
+
+        nextSlide();
+
+    }
+
+
+    if(
+        event.key === "ArrowLeft" ||
+        event.key === "PageUp"
+    ){
+
+        event.preventDefault();
+
+        prevSlide();
+
+    }
+
+
+    if(event.key === "Home"){
+        showSlide(0);
+    }
+
+
+    if(event.key === "End"){
+        showSlide(slides.length - 1);
+    }
+
+
+    if(event.key.toLowerCase() === "f"){
+        fullscreen();
+    }
+
+
+    if(event.key === "Escape"){
+        closeModal();
+    }
+
+});
+
+
+/* PHONE SWIPE */
+
+let startX = 0;
+
+
+document.addEventListener(
+"touchstart",
+(e)=>{
+
+    startX =
+    e.changedTouches[0].screenX;
+
+},
+{passive:true}
+);
+
+
+document.addEventListener(
+"touchend",
+(e)=>{
+
+    const endX =
+    e.changedTouches[0].screenX;
+
+    const difference =
+    endX - startX;
+
+    if(Math.abs(difference)>50){
+
+        if(difference<0){
+            nextSlide();
+        }
+
+        else{
+            prevSlide();
+        }
+
+    }
+
+},
+{passive:true}
+);
+
+
+showSlide(0);
+
+</script>
+
+</body>
+</html>
